@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://View.gd" type="Script" id=1]
+[ext_resource path="res://Game_Font.tres" type="DynamicFont" id=2]
+
+[node name="View" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -18.0
+margin_top = -10.0
+margin_right = 1047.0
+margin_bottom = 616.0
+color = Color( 0.811765, 0.556863, 0.156863, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 21.5954
+margin_top = 72.4128
+margin_right = 1017.6
+margin_bottom = 137.413
+custom_fonts/font = ExtResource( 2 )
+text = "What cheese is traditionally used on pizza?"
+align = 1
+
+[node name="CorrectTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="Buttons"]
+margin_left = 197.945
+margin_top = 234.0
+margin_right = 400.945
+margin_bottom = 331.0
+custom_fonts/font = ExtResource( 2 )
+text = "Swiss"
+
+[node name="Button2" type="Button" parent="Buttons"]
+margin_left = 607.474
+margin_top = 234.044
+margin_right = 838.474
+margin_bottom = 337.044
+custom_fonts/font = ExtResource( 2 )
+text = "Provolone"
+
+[node name="Button3" type="Button" parent="Buttons"]
+margin_left = 201.499
+margin_top = 430.639
+margin_right = 410.499
+margin_bottom = 537.639
+custom_fonts/font = ExtResource( 2 )
+text = "Cheddar"
+
+[node name="Button4" type="Button" parent="Buttons"]
+margin_left = 608.507
+margin_top = 426.566
+margin_right = 858.507
+margin_bottom = 535.566
+custom_fonts/font = ExtResource( 2 )
+text = "Mozzarella"
+[connection signal="timeout" from="CorrectTimer" to="." method="_on_CorrectTimer_timeout"]
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Buttons/Button4" to="." method="_on_Button4_pressed"]

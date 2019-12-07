@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NextLevelKey.gd" type="Script" id=1]
+[ext_resource path="res://16x16 RPG Item Pack/Sheet.png" type="Texture" id=2]
+[ext_resource path="res://Teleport 6 - Sound effects Pack 2.ogg" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="NextLevelKey" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 9
+hframes = 8
+frame = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_NextLevelKey_body_entered"]
